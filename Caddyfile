@@ -1,0 +1,21 @@
+{
+    auto_https off
+    admin off
+}
+
+:8080 {
+    # 路径 /vless -> 转发给 VLESS (10001)
+    handle /vless {
+        reverse_proxy 127.0.0.1:10001
+    }
+
+    # 路径 /vmess -> 转发给 VMess (10002)
+    handle /vmess {
+        reverse_proxy 127.0.0.1:10002
+    }
+
+    # 其他路径 -> 返回 200 OK (伪装成正常网站)
+    handle {
+        respond "Welcome to Koyeb Multi-Protocol Node!" 200
+    }
+}
