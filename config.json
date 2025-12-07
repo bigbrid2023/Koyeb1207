@@ -4,15 +4,15 @@
   },
   "inbounds": [
     {
-      "port": 8080,
-      "listen": "0.0.0.0",
+      "tag": "vless_in",
+      "port": 10001,
+      "listen": "127.0.0.1",
       "protocol": "vless",
       "settings": {
         "clients": [
           {
             "id": "3b1a3bfe-3061-4ce1-8b00-35c4e9f91792",
-            "level": 0,
-            "email": "koyeb@love.com"
+            "email": "vless@koyeb.com"
           }
         ],
         "decryption": "none"
@@ -20,7 +20,27 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/ray"
+          "path": "/vless"
+        }
+      }
+    },
+    {
+      "tag": "vmess_in",
+      "port": 10002,
+      "listen": "127.0.0.1",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "3b1a3bfe-3061-4ce1-8b00-35c4e9f91792",
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/vmess"
         }
       }
     }
